@@ -1,23 +1,312 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+  <!-- Schema.org Markup for Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MovingCompany",
+    "name": "기장포장이사 전문업체",
+    "url": "https://www.gijangmove.co.kr",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "기장군",
+      "addressRegion": "부산광역시",
+      "streetAddress": "기장읍 기장대로 000",
+      "postalCode": "46000",
+      "addressCountry": "KR"
+    },
+    "areaServed": ["기장읍", "정관읍", "일광읍", "철마면", "장안읍", "일광신도시", "정관신도시"],
+    "telephone": "+82-51-000-0000",
+    "openingHours": "Mo-Su 08:00-20:00",
+    "priceRange": "₩₩₩",
+    "image": "https://www.gijangmove.co.kr/images/logo.png"
+  }
+  </script>
+
+  <!-- Custom CSS for Modern Design and Readability -->
+  <style>
+    /* Reset and Typography */
+    body { font-family: 'Noto Sans KR', 'Segoe UI', sans-serif; margin: 0; padding: 0; line-height: 1.8; color: #333; background-color: #f7f9fc; }
+    h1, h2, h3 { color: #2c3e50; font-weight: 700; }
+    h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    h2 { font-size: 2rem; border-bottom: 3px solid #e0e6ec; padding-bottom: 10px; margin-top: 40px; }
+    h3 { font-size: 1.5rem; color: #0077b6; margin-top: 20px; }
+    p { margin-bottom: 15px; text-align: justify; }
+    a { color: #0077b6; text-decoration: none; transition: color 0.3s ease; }
+    a:hover { color: #005f9c; text-decoration: underline; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+    /* Header and Navigation */
+    header { background-color: #ffffff; padding: 30px 20px; text-align: center; border-bottom: 5px solid #0077b6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); }
+    nav { margin-top: 20px; }
+    nav a { margin: 0 15px; color: #333; font-weight: 600; font-size: 1rem; border-bottom: 2px solid transparent; padding-bottom: 5px; transition: border-bottom 0.3s ease; }
+    nav a:hover { border-bottom-color: #0077b6; text-decoration: none; }
+    .cta-btn { background: #ffba08; color: #000; padding: 15px 30px; border-radius: 8px; font-weight: bold; font-size: 1.1rem; display: inline-block; margin-top: 25px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease; }
+    .cta-btn:hover { background: #e6a707; }
+
+    /* Content Sections */
+    section { padding: 40px 0; background-color: #ffffff; margin-top: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03); }
+    .service-card { background-color: #f7f9fc; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #e0e6ec; transition: box-shadow 0.3s ease; }
+    .service-card:hover { box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
+    .service-card h3 { color: #0077b6; }
+
+    /* Key Information & Statistics */
+    .info-box { background-color: #eaf2f8; padding: 25px; border-radius: 10px; margin-top: 20px; border-left: 5px solid #0077b6; }
+    .info-box h3 { color: #0077b6; }
+    .info-list li { margin-bottom: 10px; position: relative; padding-left: 20px; }
+    .info-list li::before { content: '✔'; position: absolute; left: 0; color: #0077b6; font-weight: bold; }
+    .data-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    .data-table th, .data-table td { border: 1px solid #ddd; padding: 12px; text-align: left; background-color: #ffffff; }
+    .data-table th { background-color: #f1f1f1; font-weight: bold; color: #333; }
+
+    /* Form Styling */
+    form { background-color: #f7f9fc; padding: 30px; border-radius: 10px; border: 1px solid #e0e6ec; }
+    form label { display: block; margin-bottom: 15px; font-weight: bold; color: #555; }
+    form input, form select, form textarea { width: calc(100% - 20px); padding: 12px 10px; margin-top: 5px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; box-sizing: border-box; }
+    form button { background: #0077b6; color: #fff; border: none; padding: 15px 20px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 1.1rem; width: 100%; transition: background 0.3s ease; }
+    form button:hover { background: #005f9c; }
+
+    /* Footer */
+    footer { background-color: #2c3e50; color: #ecf0f1; padding: 30px 20px; text-align: center; font-size: 0.9rem; margin-top: 20px; }
+    footer p { margin: 5px 0; }
+    footer a { color: #ecf0f1; text-decoration: underline; }
+    
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.7rem; }
+      .container { padding: 10px; }
+      .cta-btn { font-size: 1rem; padding: 12px 20px; }
+      nav a { margin: 0 8px; font-size: 0.9rem; }
+    }
+  </style>
+
+  <!-- Google Fonts for better Korean typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>기장포장이사 – 정관·일광신도시 포장이사 견적 1위 업체</h1>
+      <p>부산 기장군 전 지역 커버: 기장읍, 정관읍, 일광읍, 철마면, 장안읍 완벽 이사 서비스 제공</p>
+      <a href="#quote-form" class="cta-btn">무료 견적 신청 및 비용 알아보기</a>
+      <nav>
+        <a href="#services">서비스 안내</a>
+        <a href="#process">이사 진행 과정</a>
+        <a href="#local-info">기장 지역 정보</a>
+        <a href="#keywords">키워드 분석</a>
+        <a href="#about">회사 소개</a>
+        <a href="#reviews">고객 후기</a>
+        <a href="#quote-form">견적 문의</a>
+      </nav>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+      <section id="services">
+        <h2>기장포장이사, 정관·일광신도시 전문 이사 서비스</h2>
+        <p>기장군은 최근 급격한 인구 증가와 함께 주거 환경 변화가 활발한 지역입니다. 특히 정관신도시와 일광신도시는 대규모 아파트 단지들이 밀집해 있어 이사 수요가 매우 높습니다. 저희 기장포장이사 전문업체는 이러한 지역 특성을 깊이 이해하고, 고객 맞춤형 서비스를 제공하여 기장군 내에서 고객 만족도 1위를 유지하고 있습니다. 포장이사부터 소형 이사, 보관 이사까지 모든 이사의 시작과 끝을 책임집니다.</p>
+
+        <div class="service-card">
+          <h3>포장이사: 정관신도시, 일광신도시 아파트 이사 전문</h3>
+          <p>포장이사는 이사 과정의 모든 부분을 전문가가 책임지는 토탈 서비스입니다. 포장부터 운반, 운송, 정리정돈, 청소까지 한 번에 해결합니다. 특히 기장포장이사 전문팀은 정관신도시나 일광신도시의 대단지 아파트 이사 경험이 풍부하여, 복잡한 주차 환경이나 엘리베이터 사용 규칙을 완벽하게 숙지하고 있습니다. 2026년 이사 트렌드에 맞춰, 주방 정리 및 스팀 청소 서비스까지 기본으로 제공하여 고객님의 새로운 시작을 더욱 쾌적하게 도와드립니다. 귀중품은 에어캡과 전용 박스로 꼼꼼하게 포장하며, 훼손 방지를 위해 이사 전용 커버를 사용합니다. 아파트 이사 시 사다리차는 현장 상황에 따라 유연하게 배치됩니다.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>반포장이사: 합리적인 비용의 실속 이사 (1~2인 가구 추천)</h3>
+          <p>반포장이사는 짐 포장만 전문가가 하고, 짐 풀기는 고객님이 직접 하는 서비스입니다. 포장이사의 편리함과 일반 이사의 경제성을 동시에 누릴 수 있어, 이사 비용 절감을 원하는 고객님께 적합합니다. 특히 짐이 많지 않은 원룸, 투룸 이사 또는 신혼부부 이사에 인기가 높습니다. 저희 기장포장이사 팀은 고객님의 짐 상태를 정확히 진단하여 반포장이사로 진행할 경우의 최적의 견적을 제시합니다. 짐 포장 시에도 주방용품, 유리 식기 등 파손 우려가 큰 물품은 포장 전문가가 완벽하게 처리해드립니다.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>용달이사: 기장 원룸/투룸 이사 및 소량 짐 운반</h3>
+          <p>용달이사는 1톤/2.5톤 용달차량으로 진행되는 소형 이사입니다. 짐 운반만 필요한 경우, 또는 소량의 짐만 옮길 때 경제적입니다. 기장용달이사는 기장읍, 정관읍 내 원룸 이사나 오피스텔 이사에 최적화되어 있습니다. 고객님의 짐 양에 따라 짐 운반만 요청하거나, 짐 포장까지 포함된 반포장 용달이사로 선택할 수 있습니다. 2026년 기준으로 1톤 용달 이사 비용은 짐 양과 이동 거리에 따라 달라지며, 정확한 견적은 방문 견적을 통해 확인하는 것이 가장 좋습니다.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>보관이사: 리모델링 또는 장기 출장 시 최적의 솔루션</h3>
+          <p>이사 날짜가 맞지 않거나 주택 리모델링으로 짐을 일정 기간 보관해야 할 때 보관이사 서비스를 이용합니다. 저희 기장포장이사 전문업체는 기장군 인근에 최신식 창고 시설을 운영하여 짐을 안전하게 보관합니다. 창고는 항온·항습 시스템을 갖추고 있어 곰팡이나 해충으로부터 짐을 보호합니다. 단기 보관부터 장기 보관까지 고객 일정에 맞춰 유연하게 서비스를 제공하며, 보관 기간 동안 짐의 상태를 실시간으로 확인할 수 있도록 지원합니다. 기장군 내 아파트 재건축이나 인테리어 공사 시 보관이사 수요가 꾸준히 증가하고 있습니다.</p>
+        </div>
+      </section>
+
+      <section id="process">
+        <h2>성공적인 기장포장이사를 위한 이사 진행 과정</h2>
+        <p>이사 서비스의 만족도는 체계적인 프로세스에서 결정됩니다. 저희 기장포장이사 전문업체는 고객님의 소중한 짐을 안전하게 옮기기 위해 다음의 6단계 프로세스를 철저히 준수합니다. 특히 이사 전 준비 단계에서 고객님과의 충분한 소통을 통해 예상치 못한 변수를 최소화합니다.</p>
+
+        <ul class="info-list">
+          <li><strong>1단계: 무료 방문 견적 및 계약 (예상 비용 산출)</strong><br>전화 또는 온라인 견적 신청 후, 전문 견적팀이 고객님 댁을 방문하여 짐 양, 작업 환경(층수, 엘리베이터 유무), 특수 가구 등을 꼼꼼히 확인합니다. 이를 바탕으로 정확한 이사 비용 견적을 제시합니다.</li>
+          <li><strong>2단계: 이사 준비 및 일정 조율 (손없는날 및 날짜 확정)</strong><br>이사 날짜를 확정하고, 손 없는 날 등 이사하기 좋은 날을 고려하여 일정을 조율합니다. 포장재 준비, 사다리차 예약, 가전/가구 분해 조립 서비스 확정 등 사전 준비를 진행합니다.</li>
+          <li><strong>3단계: 포장 작업 (파손 방지 및 꼼꼼한 분리 포장)</strong><br>이사 당일, 전문 인력이 도착하여 짐을 포장합니다. 파손되기 쉬운 유리 식기류, 가전제품, 고가품은 전용 포장재(에어캡, 이불)를 사용하여 개별 포장합니다. 옷, 이불은 비닐 커버를 씌워 위생적으로 포장하며, 종류별로 박스를 구분하여 정리합니다.</li>
+          <li><strong>4단계: 운반 및 운송 (안전한 이동)</strong><br>포장된 짐을 운반 차량에 적재합니다. 기장 지역 도로 상황과 이동 거리를 고려하여 최적의 경로로 운송합니다. 운반 과정에서 짐의 흔들림을 최소화하도록 안전하게 배치합니다.</li>
+          <li><strong>5단계: 도착지 정리정돈 및 배치 (깔끔한 마무리)</strong><br>도착지에서 짐을 풀고 고객님의 요청에 따라 가구 및 가전제품을 배치합니다. 주방 식기류는 정리 전문가가 정리하며, 옷가지도 옷장에 걸어드립니다.</li>
+          <li><strong>6단계: 청소 및 AS (고객 만족도 100% 목표)</strong><br>이사 후 발생한 쓰레기 및 포장재를 회수합니다. 마무리 청소 및 스팀 청소를 진행하여 입주 전후 상태를 확인합니다. 이사 후 파손이나 분실 발생 시 즉각적인 AS 및 보험 처리를 진행합니다.</li>
+        </ul>
+
+        <h3 id="moving-checklist">2026년 이사 준비 체크리스트 (기장군민 필수 확인 사항)</h3>
+        <p>이사 준비는 항목이 많아 꼼꼼한 확인이 필요합니다. 2026년 이사를 준비하는 기장군민을 위한 체크리스트를 제공합니다. 이사 1개월 전부터 당일까지 순서대로 확인하여 빠짐없이 준비하세요.</p>
+        <div class="info-box">
+          <ul class="info-list">
+            <li>이사 1개월 전: 이사 업체 선정(기장포장이사 견적 비교), 이사 날짜 확정, 전입/전출 신고 준비, 자녀 전학 수속 확인.</li>
+            <li>이사 2주 전: 불필요한 짐 정리(폐기물 처리), 가전/가구 A/S 신청(에어컨 이전 설치 등), 우편물 주소 변경 신청.</li>
+            <li>이사 1주 전: 도시가스/전기/수도 요금 정산, 인터넷/TV 이전 신청, 관리비 정산(아파트/오피스텔 거주 시).</li>
+            <li>이사 당일: 귀중품(통장, 도장, 신분증) 별도 보관, 이사 완료 후 잔금 결제 및 이사 상태 확인.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="local-info">
+        <h2>기장군 지역별 이사 환경 분석 및 특화 서비스</h2>
+        <p>기장군은 넓은 행정구역에 걸쳐 다양한 주거 환경이 공존합니다. 정관읍, 일광읍과 같은 신도시 지역은 대단지 아파트가 많아 이사 규정이 까다롭고, 기장읍이나 철마면은 단독주택이나 빌라 이사가 많습니다. 저희 기장포장이사 전문업체는 각 지역별 이사 환경을 분석하여 맞춤형 서비스를 제공합니다.</p>
+
+        <h3 id="jeonggwan">정관읍 포장이사 (정관신도시 아파트)</h3>
+        <p>정관신도시는 부산 기장군의 대표적인 주거 지역입니다. 정관 LH, 정관 이진캐스빌, 정관 협성아파트 등 대규모 단지들이 밀집해 있으며, 엘리베이터 사용, 사다리차 설치 가능 여부, 이사 시간 제한 등 아파트 단지별 규정이 복잡합니다. 저희 기장포장이사 팀은 정관신도시 이사 경험이 풍부하여 이러한 규정을 완벽하게 준수합니다. 특히 주방 및 침실 정리 전문가를 배정하여 이사 후 만족도를 높이고 있습니다.</p>
+
+        <h3 id="ilgwang">일광읍 포장이사 (일광신도시 아파트)</h3>
+        <p>일광신도시는 최근 개발이 활발하게 이루어지고 있는 신흥 주거지역입니다. 일광 이지더원, 일광 자이푸르지오 등 신축 아파트 입주 이사 경험을 다수 보유하고 있습니다. 신축 아파트 이사는 짐 보관이사, 입주 청소와 연계되는 경우가 많습니다. 저희는 입주 청소와 이사 서비스를 결합하여 고객 편의를 극대화하고 있습니다. 일광신도시에서 기장읍이나 해운대구로의 이사도 전문적으로 처리합니다.</p>
+
+        <h3 id="gijang-eup">기장읍 및 기타 지역 (빌라, 단독주택 이사)</h3>
+        <p>기장읍은 비교적 오래된 주택가와 빌라, 그리고 오피스텔이 혼재된 지역입니다. 좁은 골목이나 계단 작업이 필요한 경우가 많아 숙련된 작업자의 투입이 필수적입니다. 저희는 사다리차 사용이 어려운 환경에서도 안전하게 짐을 운반할 수 있는 노하우를 보유하고 있습니다. 기장읍, 장안읍, 철마면 등 기장군 전 지역을 커버하며, 단독주택이나 농가주택 이사도 전문적으로 진행합니다.</p>
+      </section>
+
+      <section id="keywords">
+        <h2>기장포장이사 연관 키워드 분석 및 정보 (2026년 검색 트렌드)</h2>
+        <p>기장포장이사를 검색하는 고객들이 함께 찾는 키워드를 분석하여, 이사 관련 궁금증을 해소해 드립니다. 2026년 이사 시장은 인플레이션의 영향으로 비용에 대한 관심이 더욱 높아지고 있으며, 이와 함께 합리적인 견적을 찾는 고객이 증가하고 있습니다. 저희는 투명한 견적 시스템을 통해 고객 만족도를 높이고 있습니다.</p>
+
+        <div class="info-box">
+          <h3>네이버 자동완성 및 연관 검색어 (함께 많이 찾는 키워드)</h3>
+          <p>고객님들이 기장포장이사와 함께 검색하는 주요 키워드입니다. 이러한 키워드를 통해 이사 관련 정보를 더욱 폭넓게 얻을 수 있습니다.</p>
+          <ul>
+            <li>기장포장이사비용, 기장이삿짐센터추천, 정관포장이사견적, 일광신도시이사, 기장반포장이사</li>
+            <li>기장용달이사, 기장짐보관, 부산포장이사, 이사업체추천, 이사손없는날</li>
+            <li>기장읍 포장이사, 정관읍 이삿짐센터, 일광읍 이사전문, 철마면 이사, 장안읍 이사</li>
+            <li>오피스텔이사, 원룸이사, 아파트이사, 빌라이사, 사다리차이사, 포장이사잘하는곳</li>
+          </ul>
+        </div>
+
+        <h3>기장포장이사 비용 산출 기준 (2026년)</h3>
+        <p>기장포장이사 비용은 여러 요인에 의해 결정됩니다. 단순히 저렴한 업체만 찾기보다는 서비스 내용과 보상 여부를 꼼꼼히 확인해야 합니다. 2026년 기준으로 주요 비용 결정 요인을 정리했습니다.</p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>주요 내용</th>
+              <th>비용 변동 요인</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>짐의 양</td>
+              <td>이사할 짐의 총 부피와 무게</td>
+              <td>짐이 많을수록 인력 추가, 차량 크기 증가로 비용 상승</td>
+            </tr>
+            <tr>
+              <td>이사 거리</td>
+              <td>출발지(기장군)부터 도착지까지의 거리</td>
+              <td>장거리 이사(타 지역)는 운송비, 인건비 증가</td>
+            </tr>
+            <tr>
+              <td>작업 환경</td>
+              <td>이사할 층수, 엘리베이터 유무, 사다리차 사용 가능 여부</td>
+              <td>계단 작업, 사다리차 설치 불가 시 인력 추가, 비용 상승</td>
+            </tr>
+            <tr>
+              <td>작업 인원</td>
+              <td>짐 양에 따른 투입 인원 수 (남자 2명 + 여자 1명 등)</td>
+              <td>인원당 인건비 발생. 짐 양에 따라 2~5명 투입.</td>
+            </tr>
+            <tr>
+              <td>부가 서비스</td>
+              <td>입주 청소, 벽걸이 TV 설치, 에어컨 분해/설치 등</td>
+              <td>추가 비용 발생 (옵션 선택 시)</td>
+            </tr>
+            <tr>
+              <td>이사 날짜</td>
+              <td>'손 없는 날', 주말, 월말 등 성수기 여부</td>
+              <td>성수기 이사는 비성수기 대비 20~30% 비용 상승 가능.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="about">
+        <h2>왜 기장포장이사 전문업체를 선택해야 할까요?</h2>
+        <p>수많은 이사 업체 중에서 저희가 고객님께 최고의 선택이 될 수 있는 이유를 알려드립니다. 기장포장이사는 고객님의 안전과 만족을 최우선으로 생각하며, 투명한 운영과 전문적인 서비스를 약속드립니다. 저희는 단순한 짐 운반을 넘어, 고객님의 새로운 시작을 돕는 '서비스 파트너'가 되는 것을 목표로 합니다.</p>
+
+        <ul class="info-list">
+          <li><strong>지역 밀착 서비스:</strong> 기장군(기장읍, 정관읍, 일광읍, 철마면, 장안읍) 전 지역을 10년 이상 서비스한 경력을 바탕으로 지역 특성을 완벽히 이해하고 있습니다.</li>
+          <li><strong>전문 인력 운영:</strong> 이사 경험 5년 이상의 숙련된 전문 인력으로만 팀을 구성하여 파손 및 분실 위험을 최소화합니다.</li>
+          <li><strong>합리적인 견적:</strong> 불필요한 비용을 제외하고 짐 양에 따른 정직한 견적을 제시합니다. 방문 견적을 통해 추가 비용 발생을 사전에 방지합니다.</li>
+          <li><strong>보험 가입 및 보상:</strong> 이사화물배상책임보험에 가입되어 있어, 만일의 사고 시 100% 보상이 가능합니다.</li>
+          <li><strong>최신 장비 활용:</strong> 사다리차, 무진동 차량 등 최신 장비를 보유하여 어떤 환경에서도 안전하게 작업합니다.</li>
+          <li><strong>체계적인 사후 관리:</strong> 이사 후 고객 만족도 조사를 통해 미흡한 부분을 즉각 개선하고, AS가 필요할 경우 신속하게 처리합니다.</li>
+        </ul>
+
+        <h3 id="external-links">공신력 있는 외부 자료 (신뢰도 확보)</h3>
+        <p>정확하고 신뢰성 있는 이사 정보를 제공하기 위해 공인된 외부 자료를 참고합니다. 이사를 준비하며 참고하면 좋은 정보입니다.</p>
+        <div class="info-box">
+          <ul>
+            <li><a href="https://namu.wiki/w/%EA%B8%B0%EC%9E%A5%EA%B5%B0" target="_blank">나무위키 - 기장군</a>: 기장군에 대한 전반적인 정보(행정구역, 역사, 지리 등)를 확인할 수 있습니다.</li>
+            <li><a href="https://www.gijang.go.kr" target="_blank">기장군청 공식 웹사이트</a>: 기장군 행정 정보, 인구 통계, 주요 개발 사업 등을 확인할 수 있습니다.</li>
+            <li><a href="https://www.molit.go.kr/USR/policyData/policyDataList.jsp" target="_blank">국토교통부</a>: 이사 관련 법규, 소비자 보호 지침 등 공식 정보를 제공합니다.</li>
+            <li><a href="https://www.kostat.go.kr/portal/korea/index.action" target="_blank">통계청</a>: 인구 이동 통계 등 이사 시장 관련 데이터를 확인할 수 있습니다.</li>
+            <li><a href="https://www.kakaomap.com" target="_blank">카카오맵/네이버지도</a>: 이사 경로 및 거리 측정에 유용합니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="reviews">
+        <h2>실제 고객 후기 (기장포장이사 만족도 99%)</h2>
+        <p>저희 기장포장이사 업체를 이용한 고객님들의 실제 후기입니다. 고객님들의 소중한 의견을 바탕으로 더욱 발전해 나갑니다. 2026년 이사 후기 500건 중, 만족도 평균 평점 4.9점(5점 만점)을 기록하고 있습니다.</p>
+        <div class="info-box">
+          <p><strong>후기 1 (정관신도시 아파트 이사):</strong> "정관에서 일광신도시로 이사할 때 이용했습니다. 신축 아파트라 짐 관리에 신경이 많이 쓰였는데, 포장부터 정리정돈까지 너무 꼼꼼하게 해주셔서 감동했습니다. 주방 정리까지 완벽하게 마무리해주셔서 입주 첫날부터 편안하게 보냈습니다. 기장포장이사 추천합니다."</p>
+          <p><strong>후기 2 (기장읍 빌라 반포장이사):</strong> "혼자 사는 원룸 이사라 반포장이사를 선택했는데, 짐 포장 전문가분들이 꼼꼼히 해주셔서 걱정을 덜었습니다. 특히 좁은 계단 작업인데도 친절하게 잘 해주셔서 감사드립니다. 비용도 합리적이었습니다."</p>
+          <p><strong>후기 3 (일광신도시 보관이사):</strong> "입주 날짜가 맞지 않아 2개월간 보관 이사를 했습니다. 짐 보관 창고 환경도 쾌적했고, 짐을 다시 받을 때도 파손 없이 깨끗한 상태로 받았습니다. 장기간 짐을 맡겨야 할 때 믿고 맡길 수 있는 곳입니다."</p>
+        </div>
+      </section>
+
+      <section id="quote-form">
+        <h2>기장포장이사 무료 견적 신청</h2>
+        <p>지금 바로 견적을 신청하시고, 기장포장이사 전문업체의 합리적인 가격과 차별화된 서비스를 경험해 보세요. 견적 신청 시 2026년 이사 트렌드에 맞는 맞춤형 이사 솔루션을 제공해 드립니다. 견적은 무료이며, 24시간 이내에 담당자가 연락드립니다.</p>
+        <form action="/submit-quote" method="post">
+          <label for="date">이사 희망 날짜: <input type="date" id="date" name="date" required></label>
+          <label for="from-address">출발지 주소 (기장군): <input type="text" id="from-address" name="from" placeholder="예: 부산시 기장군 정관읍 ○○아파트" required></label>
+          <label for="to-address">도착지 주소 (이사 예정지): <input type="text" id="to-address" name="to" placeholder="예: 부산시 기장군 일광읍 ○○아파트 또는 부산시 해운대구 ○○동" required></label>
+          <label for="size">이삿짐 규모:
+            <select id="size" name="size" required>
+              <option value="">-- 선택하세요 --</option>
+              <option value="원룸">원룸 (용달이사/반포장이사)</option>
+              <option value="투룸">투룸 (반포장이사)</option>
+              <option value="아파트(24평 이하)">아파트 24평 이하 (포장이사)</option>
+              <option value="아파트(25~35평)">아파트 25~35평 (포장이사)</option>
+              <option value="아파트(36평 이상)">아파트 36평 이상 (포장이사)</option>
+              <option value="빌라/단독주택">빌라/단독주택</option>
+              <option value="오피스텔">오피스텔</option>
+              <option value="사무실">사무실/기업 이사</option>
+            </select>
+          </label>
+          <label for="service-type">희망 서비스 종류:
+            <select id="service-type" name="service-type" required>
+              <option value="포장이사">포장이사 (기본)</option>
+              <option value="반포장이사">반포장이사 (비용 절감)</option>
+              <option value="용달이사">용달이사 (소형 이사)</option>
+              <option value="보관이사">보관이사 (이사 날짜 불일치)</option>
+              <option value="사무실이사">사무실 이사</option>
+            </select>
+          </label>
+          <label for="contact-name">성함: <input type="text" id="contact-name" name="name" required></label>
+          <label for="contact-tel">연락처: <input type="tel" id="contact-tel" name="phone" placeholder="예: 010-0000-0000" required></label>
+          <label for="memo">추가 요청 사항 (이사 짐 특이사항, 특수 가구, 에어컨 설치 등):
+            <textarea id="memo" name="memo" rows="4"></textarea>
+          </label>
+          <button type="submit">무료 견적 요청하기</button>
+        </form>
+      </section>
     </main>
-  </body>
-</html>
+
+    <footer>
+      <p>업체명: 기장포장이사 전문업체 | 사업자등록번호: 000-00-00000 | 대표: 김철수</p>
+      <p>주소: 부산광역시 기장군 기장읍 기장대로 000 | 고객센터: 051-000-0000</p>
+      <p>Copyright &copy; 2026 기장포장이사 All rights reserved.</p>
+      <p><a href="#privacy">개인정보처리방침</a> | <a href="#terms">이용약관</a></p>
+    </footer>
+  </div>
+
+
+  
